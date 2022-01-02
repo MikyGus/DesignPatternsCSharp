@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SingletonPattern
+﻿namespace SingletonPattern
 {
     internal class SingletonNotThreadSafe
     {
@@ -12,13 +6,13 @@ namespace SingletonPattern
         private SingletonNotThreadSafe() { Console.WriteLine("pritave ctor Not threadSafe!"); }
         public static SingletonNotThreadSafe Instance
         {
-            get 
-            { 
+            get
+            {
                 if (_instance == null)
                 {
                     _instance = new SingletonNotThreadSafe();
                 }
-                return _instance; 
+                return _instance;
             }
         }
     }
