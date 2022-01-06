@@ -5,7 +5,39 @@ using Car = PrototypePattern.Car;
 Console.WriteLine("Prototype Pattern");
 //Demo1();
 //Demo2();
-Employee();
+//Employee();
+EmployeeDemo4();
+
+
+static void EmployeeDemo4()
+{
+    Console.WriteLine("Shallow copy vs Deep copy");
+    EmployeeAddress initialAdress = new EmployeeAddress("21, abc Road, USA");
+    Employee emp = new Employee(1, "John", initialAdress);
+
+    Console.WriteLine("The original object is emp1 which is as follows:");
+    Console.WriteLine(emp);
+
+    Console.WriteLine();
+    Console.WriteLine("Making clone");
+    //Employee empClone = (Employee)emp.Clone();
+    //Different way of making the clone
+    Employee empClone = new Employee(emp);
+    Console.WriteLine("Emp clone is as follows");
+    Console.WriteLine(empClone);
+
+    Console.WriteLine();
+    Console.WriteLine("Changing values of clone");
+    empClone.Id = 10;
+    empClone.Name = "Miky";
+    empClone.EmployeeAddress.Address = "221, xyz Road, Canada";
+
+    Console.WriteLine();
+    Console.WriteLine("Emp1 is now:");
+    Console.WriteLine(emp);
+    Console.WriteLine("EmpClone is now");
+    Console.WriteLine(empClone);
+}
 
 static void Employee()
 {
