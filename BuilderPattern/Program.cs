@@ -1,10 +1,23 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using BuilderPattern;
 using MethodChaining = BuilderPattern.MethodChaining;
+using T = BuilderPattern.Taxa;
 
 Console.WriteLine("Builder pattern");
 //Demo1();
-MethodChaining();
+//MethodChaining();
+TaxaBuilder();
+
+static void TaxaBuilder()
+{
+    T.Taxa taxa = new T.TaxaBuilder()
+        .TaxaNamn("5-6 Personer")
+        .Create();
+
+    T.Taxa taxa2 = new T.TaxaBuilder(taxa).Create();
+    T.Taxa taxa3 = new T.TaxaBuilder().StartAvgift(29).Create();
+}
+
 
 
 static void MethodChaining()
